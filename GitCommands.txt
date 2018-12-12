@@ -1,0 +1,67 @@
+git init - начало работы гит в данной папке
+git status - просмотр сотояния гита 
+
+git config --global user.name "Name Surname"
+git config --global user.email "Name.Surname@mail.com"  - регистрация пользователя
+
+git add <fileName> / --all/. / <folder> / *.php  - добавление файлов в коммит
+git add . - добавление всех файлов
+git commit (-a) -m "Text for commit" - описание коммита если -а включена то все файлы добавляются автом.
+
+git log - просмотр журнала коммитов
+просмотр ниже = Enter
+выход = q
+
+git remote add origin https://github.com/...  - подключение удаленного репозитория as origin
+
+git push -u origin master - запись текущего сотояния локального репозитория master в удаленный origin
+				-u ставтся один раз для ассоциации репозиториев локального\удаленного
+
+git config --global alias.tree "log --oneline --decorate --all --graph" - создание команды git tree для удобного просмотра
+									  коммитов
+
+git diff <commit hash> - показывает разницу в коммитах HEAD и <commit hash>
+
+git checkout <commentHash> \ master - переход на другой коммит \ ветку, HEAD - местоположение указателя
+
+git branch (new-branch) - список веток  (создание новой ветки) \ назвать если без названия ветка (Head detached)
+
+выйти из редактора текста коммитов
+-ctrl+x (^x)
+-y
+-Enter
+
+git remote -v
+git remote -v origin(стандарт, но можно любое имя) https://git...(ссылка на созданный репо на гите) - копирование уд. репо?
+
+git push origin master -закинуть в удаленную репу origin локальную ветку master
+
+git pull - стянуть с удаленки в локалку с авто merge
+
+git fetch - -||- но без авто merge
+
+git merge - соеденить коммиты\ветки в один иногда conflict кода нужно выбрать что оставить
+
+git push origin HEAD:master --force - добавит коммит в репу затерев тот что был впереди, если HEAD detached не прилепит HEAD...
+git push origin master --force - ?
+
+git branch temp	- эти две команды вернули HEAD на место, правда рядом с красным origin/master
+git checkout master	- появился еще желтый master на который и указывает HEAD (его можно убрать удалением названия ветки)
+уже зеленый 
+git merge temp		- если сделать эти 3,4 команду то уже зеленый мастер на который указывает HEAD branch -d не убирает  
+git push origin master
+
+> git branch -d origin/feature/experiment		- удаление названия ветки
+error: branch 'origin/feature/experiment' not found.
+							
+> git branch -rd origin/feature/experiment
+Deleted remote branch origin/feature/experiment (was 863225e). 
+
+git reset (--soft/hard) HEAD~1\2 --hard - удалит незапушеный один\два последий(х) коммит(а) начиная с места нахождения без стирания написанного кода (с стиранием)
+git reset --soft/hard <hash> - -||- hash
+
+git stash - создать заначку, не коммит но можно перейти на другие коммиты\ветки а потом вернуться с помощью команды git stash pop
+
+git revert <hash> - создаст следующий коммит с отменой кода коммита hash --не раб
+
+
